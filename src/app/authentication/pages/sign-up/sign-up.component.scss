@@ -1,0 +1,38 @@
+
+.card-login {
+  width: 40%;
+
+  .header {
+    h1 {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 60px;
+    }
+  }
+
+  .mat-stepper-vertical {
+    .flex-column {
+      margin: 20px 0;
+
+      &.check {
+        .mat-checkbox {
+          margin: 10px 0;
+
+          .text-s{
+            position: relative;
+            top: 10px;
+
+          };
+
+        }
+
+      }
+
+    }
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<div class="container">
+  <mat-card class="card-login">
+    <mat-card-header>
+      <mat-card-title>
+        <h1 class="mat-h1">Cadastro para evento</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-stepper orientation="vertical" #stepper>
+      <mat-step [stepControl]="userForm">
+        <form [formGroup]="userForm">
+          <ng-template matStepLabel>Informe seus dados</ng-template>
+          <div class="flex-column">
+            <mat-form-field appearance="fill">
+              <mat-label>Nome Completo</mat-label>
+              <input matInput placeholder="Nome Completo" formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Telefone</mat-label>
+              <input matInput placeholder="(DD) 99999-9999" [dropSpecialCharacters]="true" mask="(00) 00000-0000" formControlName="telephone" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>CPF</mat-label>
+              <input type="text" [dropSpecialCharacters]="true"  mask="CPF_CNPJ"  matInput placeholder="CPF" formControlName="cpf" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Documento de Identidade</mat-label>
+              <input type="text" [dropSpecialCharacters]="true" mask="00-000.000"  matInput placeholder="Documento de Identidade (somente Numeros)" formControlName="identity" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <button  mat-stroked-button color="primary" matStepperNext>Próximo</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="addressForm">
+        <form [formGroup]="addressForm">
+          <ng-template matStepLabel>Informe seu endereço</ng-template>
+          <div class="flex-column">
+            <mat-form-field appearance="fill">
+              <mat-label>Cep</mat-label>
+              <input  type="number" matInput placeholder="CEP Postal" formControlName="cep" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Rua</mat-label>
+              <input matInput placeholder="Rua" formControlName="street" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Numero</mat-label>
+              <input matInput  type="number"   placeholder="número" formControlName="number" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Cidade</mat-label>
+              <input matInput placeholder="Belo Horizonte" formControlName="city" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Estado</mat-label>
+              <input matInput placeholder="Informe o Estado" formControlName="state" required>
+            </mat-form-field>
+
+          </div>
+
+          <div>
+            <button mat-stroked-button color="primary" matStepperPrevious>Voltar</button>
+            <button mat-stroked-button matStepperNext color="primary">Próximo</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Dados para Login</ng-template>
+        <form [formGroup]="passForm">
+          <div class="flex-column">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Crie sua senha </mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Repita sua senha </mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password_confirmation">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+          </div>
+        </form>
+        <div class="flex">
+          <button mat-raised-button (click)="submit()" color="accent" [disabled]="!checkUsage()" >Criar Cadastro</button>
+          <button mat-stroked-button (click)="stepper.reset()" color="primary" >Resetar</button>
+          <button mat-raised-button matStepperPrevious>Voltar</button>
+
+        </div>
+        <form [formGroup]="passForm">
+          <div class="flex-column check">
+            <mat-checkbox formControlName="usage" value=true class="text-s">Ao Cadastrar na plataforma Hulp. Tenho a ciência de que os meus dados
+              serão utilizados  apenas nos eventos  <br/> em que me inscrever.</mat-checkbox>
+            <mat-checkbox formControlName="imageUsage"  value=true class="text-s">Autorizo o uso da minha imagem juntamente aos organizadores de
+              eventos para eventuais  divulgações   <br/> nos meios de comunicação.</mat-checkbox>
+          </div>
+        </form>
+
+      </mat-step>
+    </mat-stepper>
+
+
+
+
+  </mat-card>
+</div>
