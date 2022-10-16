@@ -19,3 +19,17 @@ button{
     min-width: 8em;
   }
 }
+
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.mat-checkbox-label{
+  position: relative;
+  top: 10px;
+}

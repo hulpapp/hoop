@@ -1,30 +1,7 @@
 <div class="container">
   <mat-card class="card-login">
-
-    <div class="header">
-      <h1>Hoop</h1>
-    </div>
-    <div class="flex-column">
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput type="email">
-
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Informe sua senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <div class="flex">
-
-        <button mat-raised-button class="btn-default" color="accent">Cadastrar</button>
-        <button mat-raised-button class="btn-default" color="primary">Entrar</button>
-      </div>
-
-
-    </div>
+    <img mat-card-image src="/assets/images/dateEvent.png" alt="event">
 
   </mat-card>
+  <button mat-raised-button routerLink="../cadastrar"  color="accent">Cadastrar</button>
 </div>
