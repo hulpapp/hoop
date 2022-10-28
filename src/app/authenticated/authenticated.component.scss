@@ -1,0 +1,42 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar{
+  .title{
+    font-family: 'Mitr', sans-serif;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+  button{
+    display: block;
+    width: max-content;
+  }
+}
+
+
+
+.main-container{
+  height: calc(100vh - 56px);
+
+  @media (min-width: 600px) {
+    height: calc(100vh - 64px);
+  }
+
+  .sideDrawer{
+    width: 250px;
+    height: 100%;
+
+    background-color: #fff;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+
+    transform: translateX(-100%);
+    &.open{
+      transform: translateX(0);
+    }
+  }
+
+
+
+
+
+}

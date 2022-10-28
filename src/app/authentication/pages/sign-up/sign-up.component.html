@@ -2,7 +2,7 @@
   <mat-card class="card-login">
     <mat-card-header>
       <mat-card-title>
-        <h1 class="mat-h1">Cadastro para evento</h1>
+        <h1 class="mat-h1">Cadastro Coleta de Alimentos</h1>
       </mat-card-title>
     </mat-card-header>
     <mat-stepper orientation="vertical" #stepper>
@@ -24,7 +24,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Documento de Identidade</mat-label>
-              <input type="text" [dropSpecialCharacters]="true" mask="00-000.000"  matInput placeholder="Documento de Identidade (somente Numeros)" formControlName="identity" required>
+              <input type="text"  matInput placeholder="Documento de Identidade" formControlName="identity" required>
             </mat-form-field>
           </div>
           <div>
@@ -99,9 +99,9 @@
         <form [formGroup]="passForm">
           <div class="flex-column check">
             <mat-checkbox formControlName="usage" value=true class="text-s">Ao Cadastrar na plataforma Hulp. Tenho a ciência de que os meus dados
-              serão utilizados  apenas nos eventos  <br/> em que me inscrever.</mat-checkbox>
+              serão utilizados  apenas nos eventos  em que me inscrever.</mat-checkbox>
             <mat-checkbox formControlName="imageUsage"  value=true class="text-s">Autorizo o uso da minha imagem juntamente aos organizadores de
-              eventos para eventuais  divulgações   <br/> nos meios de comunicação.</mat-checkbox>
+              eventos para eventuais  divulgações   nos meios de comunicação.</mat-checkbox>
           </div>
         </form>
 

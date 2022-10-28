@@ -1,28 +1,71 @@
+@media only screen and (max-width: 600px) {
+
+    .card-login {
+      width: 100%;
+      padding: 0 !important;
+      .mat-stepper-vertical {
+
+        .mat-vertical-content {
+          padding: 0 24px 24px 0;
+        }
+
+        .flex-column {
+          margin: 20px 0;
+
+          &.check {
+            .mat-checkbox {
+              margin: 10px 0;
+
+              .mat-checkbox-layout {
+                top: 0;
+                white-space:inherit;
+                position: relative;
+              }
+
+              .text-s{
+                top: 35px;
+              };
+
+            }
+
+          }
+
+        }
+
+        button {
+          margin: 0 10px;
+        }
+      }
+    }
+
+}
 
 .card-login {
-  width: 40%;
-
-  .header {
-    h1 {
+    .mat-h1 {
       display: block;
       margin: 20px auto;
       text-align: center;
-      font-size: 60px;
+      font-size: 40px;
+      font-family: 'Mitr', sans-serif;
     }
-  }
-
   .mat-stepper-vertical {
     .flex-column {
-      margin: 20px 0;
+      margin: 20px 0 0 0;
+
 
       &.check {
         .mat-checkbox {
           margin: 10px 0;
+          .mat-checkbox-inner-container {
+            margin: 0;
+          }
+          .mat-checkbox-layout {
+            display:inline-flex;
+           white-space:inherit;
+          }
 
           .text-s{
             position: relative;
-            top: 10px;
-
           };
 
         }
@@ -35,4 +78,7 @@
       margin: 0 10px;
     }
   }
+}
+.container{
+  background-color: lightgrey;
 }

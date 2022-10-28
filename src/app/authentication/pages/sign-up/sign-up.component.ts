@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {SignUpService} from "../../../core/sign-up.service";
 import Swal from 'sweetalert2';
@@ -7,9 +7,12 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SignUpComponent implements OnInit {
+
+
 
   constructor(private fb: FormBuilder,private signUpService: SignUpService,  private router: Router) { }
   hide = true;
@@ -58,7 +61,7 @@ export class SignUpComponent implements OnInit {
     this.signUpService.signUp(form).subscribe(
       () => {
         this.alertSwal();
-        this.router.navigate(['/'])
+        this.router.navigate(['/cadastro']);
 
       },
     );

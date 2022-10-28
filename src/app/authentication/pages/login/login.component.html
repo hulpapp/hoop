@@ -1,7 +1,33 @@
-<div class="container">
-  <mat-card class="card-login">
-    <img mat-card-image src="/assets/images/dateEvent.png" alt="event">
 
-  </mat-card>
-  <button mat-raised-button routerLink="../cadastrar"  color="accent">Cadastrar</button>
-</div>
+
+
+<div class="area container" >
+  <div class="login" [formGroup]="loginForm" [class.error]="getEmailInvalid()&&getPasswordInvalid()" (keyup.enter)="onSubmit()">
+    <h1 class="title">Hoop</h1>
+    <input type="text" placeholder="E-mail"  formControlName="email" autofocus/>
+    <mat-icon  class="fa fa-user" fontIcon="email"></mat-icon>
+    <mat-error *ngIf="getEmailInvalid()" class="error-text">Informe um Email válido</mat-error>
+
+    <input type="password"  formControlName="password" placeholder="Senha" />
+    <mat-icon  class="fa fa-key" fontIcon="lock"></mat-icon>
+    <mat-error *ngIf="getPasswordInvalid()" class="error-text">Informe sua Senha</mat-error>
+    <button (click)="onSubmit()" >
+      <i class="spinner" *ngIf="!error"></i>
+      <span class="state">{{loading? 'Autenticando': 'Entrar'}}</span>
+    </button>
+
+  </div>
+  <button mat-button class="cad">Cadastra-se</button>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div >

@@ -1,0 +1,23 @@
+<div class="pg-events">
+  <mat-toolbar class="sub-title">
+    <span>Eventos</span>
+  </mat-toolbar>
+
+
+
+  <mat-card class="pg-events__item" *ngFor="let event of events">
+    <div class="flex-row">
+      <img src="./assets/images/event-logo.jpg" alt="evento">
+      <div class="flex">
+        <div class="title">
+          <span>{{event.name}}</span>
+        </div>
+        <div class="date">
+          <span>{{event.date}}</span>
+        </div>
+
+      </div>
+    </div>
+  </mat-card>
+
+</div>

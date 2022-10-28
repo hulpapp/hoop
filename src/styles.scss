@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap');
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Mitr, "Helvetica Neue", sans-serif; }
 .flex-column{
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .flex{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-evenly;
 }
 
@@ -31,5 +31,18 @@ button{
 
 .mat-checkbox-label{
   position: relative;
-  top: 10px;
+  left: 5px;
+  text-align: justify;
+}
+@media only screen and (max-width: 600px) {
+
+
+  .mat-checkbox-label {
+    top: -1px;
+    left: 5px;
+    white-space:inherit;
+    position: relative;
+  }
+
+
 }
