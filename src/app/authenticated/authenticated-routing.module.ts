@@ -18,8 +18,10 @@ const routes: Routes = [{
       loadChildren: () => import('./events/events/events.module').then(m => m.EventsModule),
       resolve: {events: EventsResolver},
 
-    },]
+    },
+    {path: '', redirectTo: 'eventos', pathMatch: 'full'},]
 },
+
 ];
 
 @NgModule({

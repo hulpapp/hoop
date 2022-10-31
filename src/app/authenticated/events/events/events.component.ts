@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from "../../../core/services/events/events.service";
 import {ActivatedRoute} from "@angular/router";
-import {Event} from "../../../core/models/event";
+import {EventBase} from "../../../core/models/event";
 
 @Component({
   selector: 'app-events',
@@ -14,20 +14,15 @@ export class EventsComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => { this.events = data['events']; });
   }
 
-  events: Event[]=[];
+  events: EventBase[]=[];
 
 
 
   ngOnInit(): void {
-    this.getEvents();
   }
 
 
-  getEvents() {
-    this.eventService.getEvents().subscribe((res: any) => {
-      console.log(res);
-    })
-  }
+
 
 
 

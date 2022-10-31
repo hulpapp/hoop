@@ -1,10 +1,84 @@
 <div class="pg-events-detail">
-  <div class="pg-events-detail__header">
-    <div class="pg-events-detail__header__title">
-      <h1>Event Title</h1>
+  <div class="main-content">
+    <div class="header">
+      <div class="title">
+        <h1>{{event.name}}</h1>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="flex">
+        <div class="date">
+          <p>{{event.date}}</p>
+        </div>
+        <div class="date">
+          <p>{{event.startDate}}</p>
+        </div>
+        <div class="label"> -</div>
+        <div class="date">
+          <p>{{event.endDate}}</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="location">
+        <p>{{event.city}}</p>
+      </div>
+      <mat-divider></mat-divider>
     </div>
-    <div class="pg-events-detail__header__date">
-      <p>Event Date</p>
+
+    <div class="content">
+      <div class="description">
+        <p>{{event.detail}}</p>
+      </div>
+      <mat-divider></mat-divider>
+
+
+      <div class="flex-btn">
+        <button mat-raised-button [color]="participate? 'warn': 'primary' " (click)="participateInEvent()" *ngIf="!hasInscricao">
+          {{!participate ? 'Participar' : 'Cancelar'}}
+        </button>
+      </div>
     </div>
+    <mat-card *ngIf="participate">
+      <mat-card-header>
+        <mat-card-title>Inscrição</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div [formGroup]="inscricaoForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Supermercado</mat-label>
+            <mat-select required formControlName="supermercado"  (selectionChange)="setEndereco($event)" >
+
+              <mat-option *ngFor="let superMarket of superMarkets" [value]="superMarket" >
+                {{ superMarket.local }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="adress">
+            <span>{{superMercado.endereco}}</span>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="flex time">
+            <mat-form-field appearance="outline">
+              <mat-label>Hora de entrada</mat-label>
+              <input matInput placeholder="Hora de entrada" mask="00:00" [dropSpecialCharacters]="false"   formControlName="horaEntrada">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Hora de saída</mat-label>
+              <input matInput placeholder="Hora de saída" mask="00:00" [dropSpecialCharacters]="false" formControlName="horaSaida">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" (click)="inscrever()" >Inscrever</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
+
 </div>

@@ -18,7 +18,18 @@
 
 </mat-toolbar>
 <mat-drawer-container class="main-container" >
-  <mat-drawer #drawer [mode]="sidebarResponsive()? 'over': 'side'" class="sideDrawer" [opened]="!sidebarResponsive()">I'm a drawer</mat-drawer>
+  <mat-drawer #drawer [mode]="sidebarResponsive()? 'over': 'side'" class="sideDrawer" [opened]="!sidebarResponsive()">
+
+    <ul class="menu">
+      <li>
+        <a routerLink="./eventos"  [routerLinkActive]="['active']" >
+          <mat-icon>event</mat-icon>
+          <span >Eventos</span>
+        </a>
+      </li>
+
+    </ul>
+  </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>

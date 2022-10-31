@@ -40,28 +40,35 @@ export class SignUpComponent implements OnInit {
     city: [null, Validators.required],
     state: [null, Validators.required],
   });
+  reqBool: boolean= true;
 
 
 
   ngOnInit(): void {
+
   }
 
 
   submit() {
     let submitForm: {};
     submitForm = this.jsonToFormData({...this.userForm.value, ...this.passForm.value, ...this.addressForm.value});
-    console.log(submitForm);
     if(this.userForm.valid && this.passForm.valid && this.addressForm.valid){
       this.signUp(submitForm);
     }
 
   }
 
-  signUp(form: any) {
-    this.signUpService.signUp(form).subscribe(
-      () => {
-        this.alertSwal();
-        this.router.navigate(['/cadastro']);
+  signUp(formData: any) {
+    this.setFormOnlyRead();
+    this.reqBool = false;
+    this.signUpService.signUp(formData).subscribe(
+      (data: any) => {
+        if(data){
+          this.alertSwal();
+          this.setFormReadAndWrite();
+          this.reqBool = true;
+        }
+
 
       },
     );
@@ -83,7 +90,24 @@ export class SignUpComponent implements OnInit {
       icon: 'success',
       text: 'Seja bem vindo ao sistema de Voluntariado !',
       confirmButtonText: 'OK',
-    });
+    }).then((result) => {if (result){
+      this.router.navigate(['../autenticacao']);
+    }}  );
   }
+ setFormOnlyRead(){
+    this.userForm.disable();
+    this.passForm.disable();
+    this.addressForm.disable();
+    this.disabled = true;
+ }
+
+ setFormReadAndWrite(){
+    this.userForm.enable();
+    this.passForm.enable();
+    this.addressForm.enable();
+    this.disabled = false;
+ }
+
+
 
 }

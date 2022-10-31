@@ -12,6 +12,7 @@
   .mat-card{
     width: 30%;
     margin: 2em 1em;
+    cursor: pointer;
 
     @media (max-width: 600px) {
       width: 90%;

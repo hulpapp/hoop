@@ -38,7 +38,7 @@
           <div class="flex-column">
             <mat-form-field appearance="fill">
               <mat-label>Cep</mat-label>
-              <input  type="number" matInput placeholder="CEP Postal" formControlName="cep" required>
+              <input  type="text" matInput placeholder="CEP Postal" formControlName="cep"  mask="00000-000" required>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Rua</mat-label>
@@ -50,7 +50,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Cidade</mat-label>
-              <input matInput placeholder="Belo Horizonte" formControlName="city" required>
+              <input matInput placeholder="Ex.: Belo Horizonte" formControlName="city" required>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>Estado</mat-label>
@@ -91,7 +91,7 @@
           </div>
         </form>
         <div class="flex">
-          <button mat-raised-button (click)="submit()" color="accent" [disabled]="!checkUsage()" >Criar Cadastro</button>
+          <button mat-raised-button (click)="submit()" color="accent" [disabled]="!checkUsage() && reqBool" >Criar Cadastro</button>
           <button mat-stroked-button (click)="stepper.reset()" color="primary" >Resetar</button>
           <button mat-raised-button matStepperPrevious>Voltar</button>
 

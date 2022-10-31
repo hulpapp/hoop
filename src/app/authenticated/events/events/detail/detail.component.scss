@@ -1,0 +1,81 @@
+.pg-events-detail{
+  font-family: 'Mitr', sans-serif;
+  font-weight: 300;
+  .main-content{
+    width: 90%;
+    margin: 10px auto;
+    @media (min-width: 768px) {
+      width: 40%;
+    }
+    .flex{
+      justify-content: start;
+      .date{
+        font-size: 1rem;
+        margin:  0 5px;
+      }
+      .mat-form-field{
+      &:first-of-type{
+        margin-right: 5px;
+      }
+
+      }
+
+
+      &.time{
+        @media (max-width: 768px) {
+          flex-direction: column;
+          .mat-form-field{
+            width: 100%;
+            &:first-of-type{
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+
+    }
+    .title{
+      font-size: 1.5rem;
+
+    }
+    .description{
+      font-size: 1rem;
+      text-align: justify;
+      margin:  0 5px;
+
+    }
+
+    .location{
+      font-size: 1rem;
+      margin:  0 5px;
+
+    }
+    .flex-btn{
+      display: flex;
+      justify-content: flex-end;
+      margin: 10px 0;
+      .btn{
+        margin: 0 5px;
+      }
+    }
+
+    .mat-form-field{
+      width: 100%;
+    }
+    .adress
+    {
+      font-size: 0.9rem;
+      margin: 0 5px 5px 5px;
+    }
+    .mat-divider{
+      margin-bottom: 15px;
+    }
+
+    .mat-card-actions {
+      padding: 0 15px;
+    }
+
+
+  }
+}

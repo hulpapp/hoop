@@ -5,7 +5,7 @@
 
 
 
-  <mat-card class="pg-events__item" *ngFor="let event of events">
+  <mat-card class="pg-events__item" *ngFor="let event of events" routerLink="./detalhes/{{event.id}}" [state]="{event}">
     <div class="flex-row">
       <img src="./assets/images/event-logo.jpg" alt="evento">
       <div class="flex">
